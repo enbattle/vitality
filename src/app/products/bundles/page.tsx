@@ -20,7 +20,7 @@ const bundles = [
     description: "Perfect introduction to our most popular drinks",
     price: 29.99,
     originalPrice: 35.94,
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/wellness-starter-pack.jpg",
     badge: "Save 15%",
     includes: [
       "Green Vitality (2 bottles)",
@@ -34,7 +34,7 @@ const bundles = [
     description: "Boost your immune system with these nutrient-rich drinks",
     price: 24.99,
     originalPrice: 29.97,
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/immunity-bundle.jpg",
     badge: "Save 20%",
     includes: [
       "Immunity Boost (3 bottles)",
@@ -48,7 +48,7 @@ const bundles = [
     description: "Stay energized and focused throughout your day",
     price: 32.99,
     originalPrice: 38.95,
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/energy-focus-pack.jpg",
     badge: "Best Value",
     includes: [
       "Matcha Energy (3 bottles)",
@@ -62,7 +62,7 @@ const bundles = [
     description: "Reset your system with our detoxifying blends",
     price: 27.99,
     originalPrice: 32.94,
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/detox-cleanse-bundle.jpg",
     badge: "Popular",
     includes: [
       "Green Vitality (2 bottles)",

@@ -16,7 +16,7 @@ const products = [
     name: "Green Vitality",
     description: "A refreshing blend of kale, spinach, apple, and ginger",
     price: 6.99,
-    image: "/placeholder.svg?height=400&width=400",
+    image: "./green-vitality.jpg",
     badge: "Bestseller",
     nutritionalInfo: {
       calories: 120,
@@ -30,7 +30,7 @@ const products = [
     name: "Berry Boost",
     description: "Antioxidant-rich mix of blueberries, strawberries, and acai",
     price: 7.49,
-    image: "/placeholder.svg?height=400&width=400",
+    image: "./berry-boost.jpg",
     badge: "New",
     nutritionalInfo: {
       calories: 140,
@@ -44,7 +44,7 @@ const products = [
     name: "Tropical Cleanse",
     description: "Detoxifying blend of pineapple, mango, and coconut water",
     price: 6.99,
-    image: "/placeholder.svg?height=400&width=400",
+    image: "./tropical-cleanse.jpg",
     badge: null,
     nutritionalInfo: {
       calories: 150,
@@ -58,7 +58,7 @@ const products = [
     name: "Zen Balance",
     description: "Calming infusion of chamomile, lavender, and lemon balm",
     price: 5.99,
-    image: "/placeholder.svg?height=400&width=400",
+    image: "./zen-balance.jpg",
     badge: null,
     nutritionalInfo: {
       calories: 80,

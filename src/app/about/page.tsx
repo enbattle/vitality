@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Leaf, Award, Users, Sprout } from "lucide-react";
+import { Leaf, Award, Users, Sprout, UserCircle2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
@@ -25,7 +25,7 @@ export default function AboutPage() {
             </div>
             <div className="relative aspect-video md:aspect-square rounded-lg overflow-hidden">
               <Image
-                src="/placeholder.svg?height=600&width=600"
+                src="/our-team.jpg"
                 alt="Vitality Drinks team"
                 fill
                 className="object-cover"
@@ -141,12 +141,15 @@ export default function AboutPage() {
                 key={index}
                 className="flex flex-col items-center text-center space-y-3"
               >
-                <div className="relative h-40 w-40 rounded-full overflow-hidden">
+                <div className="relative h-40 w-40 rounded-full overflow-hidden bg-green-100 dark:bg-green-900/30">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <UserCircle2 className="h-32 w-32 text-green-600 dark:text-green-400" />
+                  </div>
                   <Image
                     src={member.image || "/placeholder.svg"}
                     alt={member.name}
                     fill
-                    className="object-cover"
+                    className="object-cover opacity-0 hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
                 <h3 className="text-xl font-semibold">{member.name}</h3>

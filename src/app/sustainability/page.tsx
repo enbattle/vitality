@@ -25,7 +25,7 @@ export default function SustainabilityPage() {
             </div>
             <div className="relative aspect-video md:aspect-square rounded-lg overflow-hidden">
               <Image
-                src="/placeholder.svg?height=600&width=600"
+                src="/sustainability-initiatives.jpg"
                 alt="Sustainability initiatives"
                 fill
                 className="object-cover"
@@ -97,7 +97,7 @@ export default function SustainabilityPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-video rounded-lg overflow-hidden">
               <Image
-                src="/placeholder.svg?height=600&width=800"
+                src="/sustainable-packaging.jpg"
                 alt="Eco-friendly packaging"
                 fill
                 className="object-cover"
@@ -216,7 +216,7 @@ export default function SustainabilityPage() {
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden order-1 md:order-2">
               <Image
-                src="/placeholder.svg?height=600&width=800"
+                src="/reduce-carbon-footprint.jpg"
                 alt="Carbon footprint reduction"
                 fill
                 className="object-cover"

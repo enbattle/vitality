@@ -34,7 +34,7 @@ export function HeroSection() {
         >
           <div className="relative h-full w-full">
             <Image
-              src="/placeholder.svg?height=1080&width=1920"
+              src="./hero-bg.jpg"
               alt="Healthy drinks background"
               fill
               className="object-cover opacity-40 dark:opacity-20"

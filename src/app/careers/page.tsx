@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, MapPin, Lightbulb, Users, Target } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -163,7 +163,7 @@ export default function CareersPage() {
             </div>
             <div className="relative aspect-video md:aspect-square rounded-lg overflow-hidden">
               <Image
-                src="/placeholder.svg?height=600&width=600"
+                src="/our-team.jpg"
                 alt="Vitality Drinks team"
                 fill
                 className="object-cover"
@@ -187,12 +187,7 @@ export default function CareersPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center space-y-3">
               <div className="h-16 w-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-4">
-                <Image
-                  src="/placeholder.svg?height=40&width=40"
-                  alt="Innovation icon"
-                  width={40}
-                  height={40}
-                />
+                <Lightbulb className="h-8 w-8 text-green-600 dark:text-green-400" />
               </div>
               <h3 className="text-xl font-semibold">Innovation</h3>
               <p className="text-muted-foreground">
@@ -202,12 +197,7 @@ export default function CareersPage() {
             </div>
             <div className="text-center space-y-3">
               <div className="h-16 w-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-4">
-                <Image
-                  src="/placeholder.svg?height=40&width=40"
-                  alt="Collaboration icon"
-                  width={40}
-                  height={40}
-                />
+                <Users className="h-8 w-8 text-green-600 dark:text-green-400" />
               </div>
               <h3 className="text-xl font-semibold">Collaboration</h3>
               <p className="text-muted-foreground">
@@ -217,12 +207,7 @@ export default function CareersPage() {
             </div>
             <div className="text-center space-y-3">
               <div className="h-16 w-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-4">
-                <Image
-                  src="/placeholder.svg?height=40&width=40"
-                  alt="Impact icon"
-                  width={40}
-                  height={40}
-                />
+                <Target className="h-8 w-8 text-green-600 dark:text-green-400" />
               </div>
               <h3 className="text-xl font-semibold">Impact</h3>
               <p className="text-muted-foreground">

@@ -17,7 +17,7 @@ const featuredPost = {
   readTime: "5 min read",
   author: "Emma Rodriguez",
   category: "Nutrition",
-  image: "/placeholder.svg?height=600&width=1200",
+  image: "/cold-press-benefits.jpg",
 };
 
 const recentPosts = [
@@ -30,7 +30,7 @@ const recentPosts = [
     readTime: "4 min read",
     author: "Michael Chen",
     category: "Wellness",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/morning-drinks-boost.jpg",
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ const recentPosts = [
     readTime: "6 min read",
     author: "Sarah Johnson",
     category: "Nutrition",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/drinks-antioxidants.jpg",
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ const recentPosts = [
     readTime: "7 min read",
     author: "James Wilson",
     category: "Sustainability",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/sustainable-packaging-products.jpg",
   },
 ];
 
@@ -117,7 +117,7 @@ export default function BlogPage() {
                 </div>
               </div>
               <Button asChild>
-                <Link href={`/blog/${featuredPost.id}`}>Read More</Link>
+                <Link href={`/blog/#`}>Read More</Link>
               </Button>
             </div>
           </div>
