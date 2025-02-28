@@ -237,8 +237,8 @@ export default function PrivacyPage() {
                   <li>The right to data portability</li>
                 </ul>
                 <p className="text-muted-foreground mt-4">
-                  To exercise any of these rights, please contact us using the
-                  information provided in the "Contact Us" section below.
+                  {`To exercise any of these rights, please contact us using the
+                  information provided in the "Contact Us" section below.`}
                 </p>
               </div>
 

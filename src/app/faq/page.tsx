@@ -172,8 +172,8 @@ export default function FAQPage() {
               <div className="text-center py-12">
                 <h2 className="text-xl font-semibold mb-2">No results found</h2>
                 <p className="text-muted-foreground mb-6">
-                  We couldn't find any answers matching your search. Try a
-                  different query or browse our categories.
+                  {`We couldn't find any answers matching your search. Try a
+                  different query or browse our categories.`}
                 </p>
                 <Button onClick={() => setSearchQuery("")}>Clear Search</Button>
               </div>
@@ -232,8 +232,8 @@ export default function FAQPage() {
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h2 className="text-2xl font-bold">Still Have Questions?</h2>
             <p className="text-muted-foreground">
-              Can't find the answer you're looking for? Please contact our
-              support team.
+              {`Can't find the answer you're looking for? Please contact our
+              support team.`}
             </p>
             <Button asChild>
               <Link href="/contact">Contact Us</Link>

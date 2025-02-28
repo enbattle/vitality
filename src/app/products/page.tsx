@@ -276,7 +276,10 @@ export default function ProductsPage() {
                 transition={{ duration: 0.3 }}
                 className="group"
               >
-                <Link href={`/products/${product.id}`} className="block h-full">
+                <Link
+                  href={`/product?id=${product.id}`}
+                  className="block h-full"
+                >
                   <div className="relative aspect-square overflow-hidden rounded-lg bg-muted">
                     <Image
                       src={product.image || "/placeholder.svg"}

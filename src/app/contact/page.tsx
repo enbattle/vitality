@@ -63,7 +63,7 @@ export default function ContactPage() {
               Contact Us
             </h1>
             <p className="text-lg text-muted-foreground">
-              Have questions or feedback? We'd love to hear from you.
+              {`Have questions or feedback? We'd love to hear from you.`}
             </p>
           </div>
         </div>
@@ -226,10 +226,10 @@ export default function ContactPage() {
                   Wholesale Inquiries
                 </h3>
                 <p className="text-muted-foreground">
-                  Interested in stocking Vitality Drinks at your store or
+                  {`Interested in stocking Vitality Drinks at your store or
                   restaurant? Please select "Wholesale Inquiry" in the form or
                   email us directly at wholesale@vitalitydrinks.com for more
-                  information on our wholesale program.
+                  information on our wholesale program.`}
                 </p>
               </div>
             </div>

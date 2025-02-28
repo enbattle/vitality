@@ -118,7 +118,7 @@ export function FeaturedProducts() {
             </CardContent>
             <CardFooter className="p-4 pt-0 flex gap-2">
               <Button asChild variant="outline" size="sm" className="w-full">
-                <Link href={`/products/${product.id}`}>Details</Link>
+                <Link href={`/product?id=${product.id}`}>Details</Link>
               </Button>
               <Button size="sm" className="w-full">
                 <ShoppingCart className="h-4 w-4 mr-2" /> Add

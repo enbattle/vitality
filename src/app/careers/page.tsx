@@ -153,9 +153,9 @@ export default function CareersPage() {
                 Join Our Team
               </h1>
               <p className="text-lg text-muted-foreground">
-                At Vitality Drinks, we're on a mission to make healthy living
+                {`At Vitality Drinks, we're on a mission to make healthy living
                 accessible and delicious. Join us in creating a healthier, more
-                sustainable future.
+                sustainable future.`}
               </p>
               <Button size="lg" className="mt-4" asChild>
                 <a href="#open-positions">View Open Positions</a>
@@ -179,8 +179,8 @@ export default function CareersPage() {
           <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
             <h2 className="text-3xl font-bold tracking-tight">Our Culture</h2>
             <p className="text-lg text-muted-foreground">
-              We're building a team of passionate individuals who are committed
-              to our mission of promoting health and sustainability.
+              {`We're building a team of passionate individuals who are committed
+              to our mission of promoting health and sustainability.`}
             </p>
           </div>
 
@@ -211,8 +211,8 @@ export default function CareersPage() {
               </div>
               <h3 className="text-xl font-semibold">Impact</h3>
               <p className="text-muted-foreground">
-                We're driven by our mission to make a positive impact on
-                people's health and the environment.
+                {`We're driven by our mission to make a positive impact on
+                people's health and the environment.`}
               </p>
             </div>
           </div>
@@ -318,12 +318,12 @@ export default function CareersPage() {
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h2 className="text-3xl font-bold tracking-tight">
-              Don't See a Perfect Fit?
+              {`Don't See a Perfect Fit?`}
             </h2>
             <p className="text-lg text-muted-foreground">
-              We're always looking for talented individuals who are passionate
+              {`We're always looking for talented individuals who are passionate
               about our mission. Send us your resume and let us know how you can
-              contribute.
+              contribute.`}
             </p>
             <Button size="lg" asChild>
               <Link href="/contact">Contact Us</Link>

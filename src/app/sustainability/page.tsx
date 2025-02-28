@@ -41,8 +41,8 @@ export default function SustainabilityPage() {
           <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
             <h2 className="text-3xl font-bold tracking-tight">Our Approach</h2>
             <p className="text-lg text-muted-foreground">
-              Sustainability isn't just a buzzword for us—it's at the core of
-              everything we do, from sourcing to packaging to distribution.
+              {`Sustainability isn't just a buzzword for us—it's at the core of
+              everything we do, from sourcing to packaging to distribution.`}
             </p>
           </div>
 
@@ -73,8 +73,8 @@ export default function SustainabilityPage() {
               </div>
               <h3 className="text-xl font-semibold">Water Conservation</h3>
               <p className="text-muted-foreground">
-                We've implemented water-saving technologies in our production
-                facilities to minimize waste.
+                {`We've implemented water-saving technologies in our production
+                facilities to minimize waste.`}
               </p>
             </div>
             <div className="flex flex-col items-center text-center space-y-3">
@@ -108,8 +108,8 @@ export default function SustainabilityPage() {
                 Sustainable Packaging
               </h2>
               <p className="text-lg">
-                We've redesigned our packaging to minimize environmental impact
-                without compromising on quality or safety.
+                {`We've redesigned our packaging to minimize environmental impact
+                without compromising on quality or safety.`}
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
@@ -143,8 +143,8 @@ export default function SustainabilityPage() {
                   <div>
                     <h3 className="font-semibold">Minimal Packaging</h3>
                     <p className="text-muted-foreground mt-1">
-                      We've eliminated unnecessary packaging elements to reduce
-                      waste without compromising product integrity.
+                      {`We've eliminated unnecessary packaging elements to reduce
+                      waste without compromising product integrity.`}
                     </p>
                   </div>
                 </li>
@@ -163,8 +163,8 @@ export default function SustainabilityPage() {
                 Reducing Our Carbon Footprint
               </h2>
               <p className="text-lg">
-                We're committed to measuring, reducing, and offsetting our
-                carbon emissions across our entire supply chain.
+                {`We're committed to measuring, reducing, and offsetting our
+                carbon emissions across our entire supply chain.`}
               </p>
               <div className="space-y-4">
                 <div className="bg-green-50 dark:bg-green-950/20 p-6 rounded-lg">
@@ -234,8 +234,8 @@ export default function SustainabilityPage() {
               Join Us in Making a Difference
             </h2>
             <p className="text-lg text-muted-foreground">
-              Sustainability is a journey, not a destination. We're constantly
-              looking for ways to improve and would love to hear your ideas.
+              {`Sustainability is a journey, not a destination. We're constantly
+              looking for ways to improve and would love to hear your ideas.`}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg">Contact Us</Button>

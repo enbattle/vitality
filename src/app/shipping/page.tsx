@@ -105,14 +105,14 @@ export default function ShippingPage() {
                   <h2 className="text-2xl font-bold">Order Tracking</h2>
                 </div>
                 <p className="text-muted-foreground mb-4">
-                  Once your order ships, you'll receive a confirmation email
+                  {`Once your order ships, you'll receive a confirmation email
                   with tracking information. You can also track your order by
-                  logging into your account on our website.
+                  logging into your account on our website.`}
                 </p>
                 <div className="space-y-2">
                   <h3 className="text-lg font-semibold">Shipping Updates</h3>
                   <p className="text-muted-foreground">
-                    You'll receive email notifications at the following stages:
+                    {`You'll receive email notifications at the following stages:`}
                   </p>
                   <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
                     <li>When your order is confirmed</li>
@@ -144,10 +144,10 @@ export default function ShippingPage() {
                       Damaged Products
                     </h3>
                     <p className="text-muted-foreground">
-                      If your order arrives damaged or compromised in any way,
+                      {`If your order arrives damaged or compromised in any way,
                       please contact us within 24 hours of delivery. Include
                       photos of the damaged items and packaging, and we'll
-                      process a replacement or refund promptly.
+                      process a replacement or refund promptly.`}
                     </p>
                   </div>
 
@@ -156,10 +156,10 @@ export default function ShippingPage() {
                       Quality Issues
                     </h3>
                     <p className="text-muted-foreground">
-                      If you're unsatisfied with the quality of our products,
+                      {`If you're unsatisfied with the quality of our products,
                       please let us know within 3 days of delivery. We stand
                       behind our products and will work with you to make it
-                      right.
+                      right.`}
                     </p>
                   </div>
 
@@ -187,8 +187,8 @@ export default function ShippingPage() {
                   <h2 className="text-2xl font-bold">Order Modifications</h2>
                 </div>
                 <p className="text-muted-foreground mb-4">
-                  Need to make changes to your order? Here's what you need to
-                  know:
+                  {`Need to make changes to your order? Here's what you need to
+                  know:`}
                 </p>
                 <div className="space-y-2">
                   <h3 className="text-lg font-semibold">Cancellations</h3>

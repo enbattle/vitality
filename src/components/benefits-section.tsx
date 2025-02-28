@@ -43,8 +43,8 @@ export function BenefitsSection() {
             Why Choose Our Drinks?
           </h2>
           <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
-            We're committed to creating beverages that are good for you and the
-            planet
+            {`We're committed to creating beverages that are good for you and the
+            planet`}
           </p>
         </div>
 

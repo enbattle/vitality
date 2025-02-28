@@ -41,10 +41,10 @@ export default function AboutPage() {
           <div className="max-w-3xl mx-auto text-center space-y-4">
             <h2 className="text-3xl font-bold tracking-tight">Our Mission</h2>
             <p className="text-lg text-muted-foreground">
-              We're on a mission to revolutionize the beverage industry by
+              {`              We're on a mission to revolutionize the beverage industry by
               creating drinks that are good for you and the planet. We believe
               that what you put into your body matters, and that healthy choices
-              should be accessible to everyone.
+              should be accessible to everyone.`}
             </p>
           </div>
 
@@ -85,8 +85,8 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-semibold">Sustainability</h3>
               <p className="text-muted-foreground">
-                Our packaging is eco-friendly and we're committed to reducing
-                our carbon footprint.
+                {`Our packaging is eco-friendly and we're committed to reducing
+                our carbon footprint.`}
               </p>
             </div>
           </div>
@@ -166,8 +166,8 @@ export default function AboutPage() {
           <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
             <h2 className="text-3xl font-bold tracking-tight">Our Journey</h2>
             <p className="text-lg text-muted-foreground">
-              From a small kitchen experiment to a nationwide brand, here's how
-              we've grown.
+              {`From a small kitchen experiment to a nationwide brand, here's how
+              we've grown.`}
             </p>
           </div>
 
