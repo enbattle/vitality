@@ -79,19 +79,7 @@ src/
 - `npm run build` - Build the application
 - `npm run start` - Start the production server
 - `npm run lint` - Run ESLint
-- `npm run deploy` - Build and deploy the application
-
-## 🎨 UI Components
-
-The project uses a combination of custom components and Radix UI primitives for accessible, high-quality UI elements:
-
-- Site Header
-- Site Footer
-- Hero Section
-- Featured Products
-- Benefits Section
-- Testimonials
-- Newsletter Section
+- `npm run deploy` - Build and deploy the application (via GitHub pages)
 
 ## 🔒 Environment Variables
 
@@ -117,21 +105,9 @@ The project includes a custom deployment script (`deploy.js`) for automated depl
 npm run deploy
 ```
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👥 Authors
-
-- Your Name - Initial work
 
 ## 🙏 Acknowledgments
 
