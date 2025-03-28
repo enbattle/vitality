@@ -2,6 +2,8 @@
 
 A modern, accessible e-commerce platform built with Next.js for selling health drinks. This project features a beautiful, responsive design with a focus on user experience and performance.
 
+Live site here: [https://enbattle.github.io/vitality/](https://enbattle.github.io/vitality/)
+
 ## 🚀 Features
 
 - 🛍️ Product catalog with detailed product pages
