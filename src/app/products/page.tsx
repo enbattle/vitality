@@ -1,3 +1,14 @@
+/**
+ * Products page component for the Vitality Drinks e-commerce platform.
+ * This page displays a catalog of products with:
+ * - Search functionality
+ * - Category filtering
+ * - Price range filtering
+ * - Sorting options
+ * - Responsive grid layout
+ * - Product cards with images and details
+ */
+
 "use client";
 
 import { useState } from "react";
@@ -29,7 +40,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-// Mock product data
+/**
+ * Mock product data for demonstration purposes
+ * In a real application, this would be fetched from an API or database
+ */
 const products = [
   {
     id: 1,
@@ -105,6 +119,9 @@ const products = [
   },
 ];
 
+/**
+ * Available product categories for filtering
+ */
 const categories = [
   "All",
   "Greens",
@@ -117,14 +134,21 @@ const categories = [
   "Wellness",
 ];
 
+/**
+ * Products page component that displays and filters the product catalog
+ * @returns A React component that renders the products page
+ */
 export default function ProductsPage() {
+  // State management for filters and search
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [priceRange, setPriceRange] = useState([0, 10]);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [sortOption, setSortOption] = useState("featured");
 
-  // Filter products based on search, category, and price
+  /**
+   * Filter products based on search query, selected category, and price range
+   */
   const filteredProducts = products.filter((product) => {
     const matchesSearch =
       product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -137,7 +161,9 @@ export default function ProductsPage() {
     return matchesSearch && matchesCategory && matchesPrice;
   });
 
-  // Sort products
+  /**
+   * Sort filtered products based on selected sort option
+   */
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortOption === "price-low") return a.price - b.price;
     if (sortOption === "price-high") return b.price - a.price;
@@ -147,6 +173,7 @@ export default function ProductsPage() {
 
   return (
     <main className="flex-1">
+      {/* Page header with title and search/filter controls */}
       <div className="container px-4 md:px-6 py-6 md:py-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
           <div>
@@ -156,7 +183,9 @@ export default function ProductsPage() {
             </p>
           </div>
 
+          {/* Search, filter, and sort controls */}
           <div className="flex items-center gap-2 w-full md:w-auto">
+            {/* Search input */}
             <div className="relative flex-1 md:w-[300px]">
               <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
@@ -168,6 +197,7 @@ export default function ProductsPage() {
               />
             </div>
 
+            {/* Filter sheet */}
             <Sheet open={filtersOpen} onOpenChange={setFiltersOpen}>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon" className="shrink-0">
@@ -182,7 +212,9 @@ export default function ProductsPage() {
                     Refine your product search with filters
                   </SheetDescription>
                 </SheetHeader>
+                {/* Filter options */}
                 <div className="grid gap-6 py-6">
+                  {/* Category filters */}
                   <div className="space-y-4">
                     <h3 className="text-sm font-medium">Category</h3>
                     <div className="grid grid-cols-2 gap-2">
@@ -202,6 +234,7 @@ export default function ProductsPage() {
                       ))}
                     </div>
                   </div>
+                  {/* Price range filter */}
                   <div className="space-y-4">
                     <div className="flex justify-between items-center">
                       <h3 className="text-sm font-medium">Price Range</h3>
@@ -219,6 +252,7 @@ export default function ProductsPage() {
                     />
                   </div>
                 </div>
+                {/* Filter actions */}
                 <div className="flex justify-between">
                   <Button
                     variant="outline"
@@ -236,6 +270,7 @@ export default function ProductsPage() {
               </SheetContent>
             </Sheet>
 
+            {/* Sort dropdown */}
             <Select value={sortOption} onValueChange={setSortOption}>
               <SelectTrigger className="w-[180px] hidden md:flex">
                 <SelectValue placeholder="Sort by" />
@@ -250,69 +285,50 @@ export default function ProductsPage() {
           </div>
         </div>
 
-        {filteredProducts.length === 0 ? (
-          <div className="text-center py-12">
-            <h2 className="text-xl font-semibold mb-2">No products found</h2>
-            <p className="text-muted-foreground mb-6">
-              Try adjusting your filters or search query
-            </p>
-            <Button
-              onClick={() => {
-                setSearchQuery("");
-                setSelectedCategory("All");
-                setPriceRange([0, 10]);
-              }}
+        {/* Product grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {sortedProducts.map((product) => (
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="group relative"
             >
-              Reset All Filters
-            </Button>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {sortedProducts.map((product) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="group"
+              <Link href={`/product/${product.id}`}>
+                <div className="aspect-square relative overflow-hidden rounded-lg border bg-background">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-cover transition-transform group-hover:scale-105"
+                  />
+                  {product.badge && (
+                    <Badge
+                      variant="secondary"
+                      className="absolute top-2 right-2"
+                    >
+                      {product.badge}
+                    </Badge>
+                  )}
+                </div>
+                <div className="mt-4 space-y-1">
+                  <h3 className="font-medium">{product.name}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {product.description}
+                  </p>
+                  <p className="font-medium">${product.price.toFixed(2)}</p>
+                </div>
+              </Link>
+              <Button
+                className="absolute bottom-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                size="icon"
               >
-                <Link
-                  href={`/product?id=${product.id}`}
-                  className="block h-full"
-                >
-                  <div className="relative aspect-square overflow-hidden rounded-lg bg-muted">
-                    <Image
-                      src={product.image || "/placeholder.svg"}
-                      alt={product.name}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                    {product.badge && (
-                      <Badge className="absolute top-3 right-3 bg-green-600 hover:bg-green-700">
-                        {product.badge}
-                      </Badge>
-                    )}
-                  </div>
-                  <div className="mt-3 space-y-1">
-                    <h3 className="font-semibold">{product.name}</h3>
-                    <p className="text-sm text-muted-foreground line-clamp-2">
-                      {product.description}
-                    </p>
-                    <div className="flex justify-between items-center pt-2">
-                      <span className="font-bold">
-                        ${product.price.toFixed(2)}
-                      </span>
-                      <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
-                        <ShoppingCart className="h-4 w-4" />
-                        <span className="sr-only">Add to cart</span>
-                      </Button>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        )}
+                <ShoppingCart className="h-4 w-4" />
+              </Button>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </main>
   );

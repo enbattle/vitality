@@ -1,3 +1,12 @@
+/**
+ * Contact page component for the Vitality Drinks e-commerce platform.
+ * This page provides users with multiple ways to get in touch with the company:
+ * - Contact form for general inquiries, order support, and wholesale inquiries
+ * - Company contact information (address, phone, email, hours)
+ * - Interactive map showing store location
+ * - Wholesale inquiry information
+ */
+
 "use client";
 
 import type React from "react";
@@ -12,7 +21,18 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { toast } from "@/hooks/use-toast";
 
+/**
+ * Contact page component that handles user inquiries and displays contact information
+ * @returns A React component that renders the contact page content
+ */
 export default function ContactPage() {
+  /**
+   * Form state management
+   * - name: User's name
+   * - email: User's email address
+   * - subject: Type of inquiry (general, order, wholesale, other)
+   * - message: User's message content
+   */
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,6 +41,10 @@ export default function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  /**
+   * Handles changes to text input and textarea fields
+   * @param e - Change event from input or textarea
+   */
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -28,10 +52,23 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  /**
+   * Handles changes to radio button selection
+   * @param value - Selected subject value
+   */
   const handleRadioChange = (value: string) => {
     setFormData((prev) => ({ ...prev, subject: value }));
   };
 
+  /**
+   * Handles form submission
+   * - Prevents default form behavior
+   * - Shows loading state
+   * - Simulates API call
+   * - Shows success toast
+   * - Resets form
+   * @param e - Form submission event
+   */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -55,7 +92,7 @@ export default function ContactPage() {
 
   return (
     <main className="flex-1">
-      {/* Header */}
+      {/* Page header with title and description */}
       <div className="bg-green-50 dark:bg-green-950/20 py-12 md:py-16">
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center space-y-4">
@@ -69,13 +106,16 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Contact Information */}
+      {/* Main content section with contact info and form */}
       <div className="py-12">
         <div className="container px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12">
+            {/* Left column: Contact information and map */}
             <div>
               <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
+              {/* Contact details with icons */}
               <div className="space-y-6">
+                {/* Location information */}
                 <div className="flex items-start gap-4">
                   <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center shrink-0">
                     <MapPin className="h-5 w-5 text-green-600 dark:text-green-400" />
@@ -89,6 +129,7 @@ export default function ContactPage() {
                     </p>
                   </div>
                 </div>
+                {/* Phone number */}
                 <div className="flex items-start gap-4">
                   <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center shrink-0">
                     <Phone className="h-5 w-5 text-green-600 dark:text-green-400" />
@@ -98,6 +139,7 @@ export default function ContactPage() {
                     <p className="text-muted-foreground mt-1">(555) 123-4567</p>
                   </div>
                 </div>
+                {/* Email address */}
                 <div className="flex items-start gap-4">
                   <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center shrink-0">
                     <Mail className="h-5 w-5 text-green-600 dark:text-green-400" />
@@ -109,6 +151,7 @@ export default function ContactPage() {
                     </p>
                   </div>
                 </div>
+                {/* Business hours */}
                 <div className="flex items-start gap-4">
                   <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center shrink-0">
                     <Clock className="h-5 w-5 text-green-600 dark:text-green-400" />
@@ -126,10 +169,11 @@ export default function ContactPage() {
                 </div>
               </div>
 
+              {/* Store map section */}
               <div className="mt-12">
                 <h2 className="text-2xl font-bold mb-6">Visit Our Store</h2>
                 <div className="aspect-video bg-muted rounded-lg overflow-hidden">
-                  {/* This would be a Google Map in a real implementation */}
+                  {/* Placeholder for Google Maps integration */}
                   <div className="w-full h-full bg-muted flex items-center justify-center">
                     <p className="text-muted-foreground">Interactive Map</p>
                   </div>
@@ -137,9 +181,11 @@ export default function ContactPage() {
               </div>
             </div>
 
+            {/* Right column: Contact form */}
             <div>
               <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name input */}
                 <div className="space-y-2">
                   <Label htmlFor="name">Your Name</Label>
                   <Input
@@ -150,6 +196,7 @@ export default function ContactPage() {
                     required
                   />
                 </div>
+                {/* Email input */}
                 <div className="space-y-2">
                   <Label htmlFor="email">Your Email</Label>
                   <Input
@@ -161,6 +208,7 @@ export default function ContactPage() {
                     required
                   />
                 </div>
+                {/* Subject radio buttons */}
                 <div className="space-y-2">
                   <Label>Subject</Label>
                   <RadioGroup
@@ -194,6 +242,7 @@ export default function ContactPage() {
                     </div>
                   </RadioGroup>
                 </div>
+                {/* Message textarea */}
                 <div className="space-y-2">
                   <Label htmlFor="message">Your Message</Label>
                   <Textarea
@@ -205,6 +254,7 @@ export default function ContactPage() {
                     required
                   />
                 </div>
+                {/* Submit button with loading state */}
                 <Button
                   type="submit"
                   className="w-full"
@@ -221,6 +271,7 @@ export default function ContactPage() {
                 </Button>
               </form>
 
+              {/* Wholesale inquiry information */}
               <div className="mt-12 p-6 bg-green-50 dark:bg-green-950/20 rounded-lg">
                 <h3 className="font-semibold text-lg mb-2">
                   Wholesale Inquiries

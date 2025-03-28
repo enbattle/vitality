@@ -1,12 +1,25 @@
+/**
+ * About page component for the Vitality Drinks e-commerce platform.
+ * This page tells the company's story and includes:
+ * - Hero section with company introduction
+ * - Mission statement and core values
+ * - Team member profiles
+ * - Company timeline
+ */
+
 import Image from "next/image";
 import { Leaf, Award, Users, Sprout, UserCircle2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
+/**
+ * About page component that displays company information and history
+ * @returns A React component that renders the about page content
+ */
 export default function AboutPage() {
   return (
     <main className="flex-1">
-      {/* Hero Section */}
+      {/* Hero Section with company introduction */}
       <div className="relative bg-green-50 dark:bg-green-950/20 py-16 md:py-24">
         <div className="container px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -35,7 +48,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Mission Section */}
+      {/* Mission Section with core values */}
       <div className="py-16 md:py-24">
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center space-y-4">
@@ -48,7 +61,9 @@ export default function AboutPage() {
             </p>
           </div>
 
+          {/* Core values grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+            {/* Natural Ingredients value */}
             <div className="flex flex-col items-center text-center space-y-3">
               <div className="h-16 w-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4">
                 <Leaf className="h-8 w-8 text-green-600 dark:text-green-400" />
@@ -59,6 +74,8 @@ export default function AboutPage() {
                 beverages.
               </p>
             </div>
+
+            {/* Quality First value */}
             <div className="flex flex-col items-center text-center space-y-3">
               <div className="h-16 w-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4">
                 <Award className="h-8 w-8 text-green-600 dark:text-green-400" />
@@ -69,6 +86,8 @@ export default function AboutPage() {
                 standards.
               </p>
             </div>
+
+            {/* Community Focus value */}
             <div className="flex flex-col items-center text-center space-y-3">
               <div className="h-16 w-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4">
                 <Users className="h-8 w-8 text-green-600 dark:text-green-400" />
@@ -79,6 +98,8 @@ export default function AboutPage() {
                 serve.
               </p>
             </div>
+
+            {/* Sustainability value */}
             <div className="flex flex-col items-center text-center space-y-3">
               <div className="h-16 w-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4">
                 <Sprout className="h-8 w-8 text-green-600 dark:text-green-400" />
@@ -93,7 +114,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Team Section */}
+      {/* Team Section with member profiles */}
       <div className="bg-green-50 dark:bg-green-950/20 py-16 md:py-24">
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
@@ -104,6 +125,7 @@ export default function AboutPage() {
             </p>
           </div>
 
+          {/* Team members grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
@@ -160,7 +182,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Timeline Section */}
+      {/* Timeline Section showing company history */}
       <div className="py-16 md:py-24">
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
@@ -171,6 +193,7 @@ export default function AboutPage() {
             </p>
           </div>
 
+          {/* Timeline events */}
           <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-1/2 before:h-full before:w-0.5 before:bg-border md:before:mx-auto md:before:translate-x-0">
             {[
               {

@@ -1,3 +1,17 @@
+/**
+ * Featured Products component for the Vitality Drinks e-commerce platform.
+ * This component displays a grid of featured products with:
+ * - Product images with hover effects
+ * - Product details (name, description, price)
+ * - Nutritional information
+ * - Action buttons (Details and Add to Cart)
+ * Features include:
+ * - Animated entrance for each product card
+ * - Hover effects on product images
+ * - Badge indicators for special products (Bestseller, New)
+ * - Responsive grid layout
+ */
+
 "use client";
 
 import { useState } from "react";
@@ -10,6 +24,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { ShoppingCart } from "lucide-react";
 
+/**
+ * Mock product data structure
+ * Each product contains:
+ * - id: Unique identifier
+ * - name: Product name
+ * - description: Product description
+ * - price: Product price
+ * - image: Product image URL
+ * - badge: Special badge text (optional)
+ * - nutritionalInfo: Nutritional information object
+ */
 const products = [
   {
     id: 1,
@@ -69,7 +94,12 @@ const products = [
   },
 ];
 
+/**
+ * Featured Products component that displays a grid of product cards
+ * @returns A React component that renders the featured products grid
+ */
 export function FeaturedProducts() {
+  // Track which product card is currently being hovered
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
@@ -77,14 +107,18 @@ export function FeaturedProducts() {
       {products.map((product) => (
         <motion.div
           key={product.id}
+          // Animation properties for entrance effect
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: product.id * 0.1 }}
+          // Hover state management
           onHoverStart={() => setHoveredId(product.id)}
           onHoverEnd={() => setHoveredId(null)}
           className="relative"
         >
+          {/* Product card with glassmorphism effect */}
           <Card className="h-full overflow-hidden border-0 bg-background/50 backdrop-blur-sm">
+            {/* Product image container with hover zoom effect */}
             <div className="relative aspect-square overflow-hidden">
               <Image
                 src={product.image || "/placeholder.svg"}
@@ -96,17 +130,20 @@ export function FeaturedProducts() {
                     hoveredId === product.id ? "scale(1.05)" : "scale(1)",
                 }}
               />
+              {/* Special badge for featured products */}
               {product.badge && (
                 <Badge className="absolute top-3 right-3 bg-green-600 hover:bg-green-700">
                   {product.badge}
                 </Badge>
               )}
             </div>
+            {/* Product details section */}
             <CardContent className="p-4">
               <h3 className="font-semibold text-lg">{product.name}</h3>
               <p className="text-sm text-muted-foreground mt-1">
                 {product.description}
               </p>
+              {/* Price and calorie information */}
               <div className="mt-3 flex justify-between items-center">
                 <span className="font-bold text-lg">
                   ${product.price.toFixed(2)}
@@ -116,6 +153,7 @@ export function FeaturedProducts() {
                 </div>
               </div>
             </CardContent>
+            {/* Action buttons */}
             <CardFooter className="p-4 pt-0 flex gap-2">
               <Button asChild variant="outline" size="sm" className="w-full">
                 <Link href={`/product?id=${product.id}`}>Details</Link>

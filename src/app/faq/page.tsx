@@ -1,3 +1,17 @@
+/**
+ * FAQ (Frequently Asked Questions) page component for the Vitality Drinks e-commerce platform.
+ * This page provides users with answers to common questions about:
+ * - Products (ingredients, shelf life, preparation)
+ * - Orders & Shipping (delivery areas, timing, subscriptions)
+ * - Returns & Refunds (policies, damaged products)
+ * - Sustainability (recycling, carbon footprint, farming practices)
+ * Features include:
+ * - Searchable FAQ database
+ * - Categorized questions
+ * - Expandable/collapsible answers
+ * - Contact support option
+ */
+
 "use client";
 
 import { useState } from "react";
@@ -7,7 +21,14 @@ import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-// Mock FAQ data
+/**
+ * Mock FAQ data structure
+ * Each category contains:
+ * - category: Category name
+ * - questions: Array of FAQ items, each with:
+ *   - question: The FAQ question
+ *   - answer: Detailed answer to the question
+ */
 const faqs = [
   {
     category: "Products",
@@ -111,13 +132,27 @@ const faqs = [
   },
 ];
 
+/**
+ * FAQ page component that displays and manages frequently asked questions
+ * @returns A React component that renders the FAQ page content
+ */
 export default function FAQPage() {
+  /**
+   * State management
+   * - searchQuery: Current search input value
+   * - expandedQuestions: Record of which questions are expanded/collapsed
+   */
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedQuestions, setExpandedQuestions] = useState<
     Record<string, boolean>
   >({});
 
-  // Filter FAQs based on search query
+  /**
+   * Filter FAQs based on search query
+   * - Filters both questions and answers
+   * - Case-insensitive search
+   * - Removes empty categories
+   */
   const filteredFaqs = faqs
     .map((category) => ({
       ...category,
@@ -129,6 +164,11 @@ export default function FAQPage() {
     }))
     .filter((category) => category.questions.length > 0);
 
+  /**
+   * Toggle the expanded state of a question
+   * @param categoryIndex - Index of the FAQ category
+   * @param questionIndex - Index of the question within the category
+   */
   const toggleQuestion = (categoryIndex: number, questionIndex: number) => {
     const key = `${categoryIndex}-${questionIndex}`;
     setExpandedQuestions((prev) => ({
@@ -139,7 +179,7 @@ export default function FAQPage() {
 
   return (
     <main className="flex-1">
-      {/* Header */}
+      {/* Page header with title and description */}
       <div className="bg-green-50 dark:bg-green-950/20 py-12 md:py-16">
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center space-y-4">
@@ -154,10 +194,11 @@ export default function FAQPage() {
         </div>
       </div>
 
-      {/* Search and Categories */}
+      {/* Main content section with search and FAQ categories */}
       <div className="py-12">
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto">
+            {/* Search input */}
             <div className="relative mb-8">
               <Input
                 type="search"
@@ -168,6 +209,7 @@ export default function FAQPage() {
               />
             </div>
 
+            {/* Search results or no results message */}
             {filteredFaqs.length === 0 ? (
               <div className="text-center py-12">
                 <h2 className="text-xl font-semibold mb-2">No results found</h2>
@@ -194,6 +236,7 @@ export default function FAQPage() {
                             key={questionIndex}
                             className="border rounded-lg overflow-hidden"
                           >
+                            {/* Question button with expand/collapse icon */}
                             <button
                               className="flex justify-between items-center w-full p-4 text-left font-medium"
                               onClick={() =>
@@ -207,6 +250,7 @@ export default function FAQPage() {
                                 }`}
                               />
                             </button>
+                            {/* Answer section */}
                             {isExpanded && (
                               <div className="p-4 pt-0 border-t">
                                 <p className="text-muted-foreground">
@@ -226,7 +270,7 @@ export default function FAQPage() {
         </div>
       </div>
 
-      {/* Still Have Questions */}
+      {/* Contact support section */}
       <div className="bg-green-50 dark:bg-green-950/20 py-12">
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center space-y-6">

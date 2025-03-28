@@ -1,13 +1,29 @@
+/**
+ * Privacy Policy page component for the Vitality Drinks e-commerce platform.
+ * This page displays the company's privacy policy, including:
+ * - Introduction to privacy practices
+ * - Information collection practices
+ * - Data usage and processing
+ * - Information sharing policies
+ * - User privacy rights
+ * - Data security measures
+ * - Contact information
+ */
+
 import Link from "next/link";
 import { Shield, Lock, Eye, FileText, Share2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
+/**
+ * Privacy Policy page component that displays the company's privacy practices
+ * @returns A React component that renders the privacy policy content
+ */
 export default function PrivacyPage() {
   return (
     <main className="flex-1">
-      {/* Header */}
+      {/* Page header with title and last update date */}
       <div className="bg-green-50 dark:bg-green-950/20 py-12 md:py-16">
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center space-y-4">
@@ -21,11 +37,12 @@ export default function PrivacyPage() {
         </div>
       </div>
 
-      {/* Policy Content */}
+      {/* Main content section with policy sections */}
       <div className="py-12 md:py-16">
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto">
             <div className="space-y-8">
+              {/* Introduction section */}
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
@@ -49,6 +66,7 @@ export default function PrivacyPage() {
 
               <Separator />
 
+              {/* Information collection section */}
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
@@ -61,6 +79,7 @@ export default function PrivacyPage() {
                   of our website, including:
                 </p>
                 <div className="space-y-4">
+                  {/* Personal information subsection */}
                   <div>
                     <h3 className="text-lg font-semibold mb-2">
                       Personal Information
@@ -91,6 +110,7 @@ export default function PrivacyPage() {
                     </ul>
                   </div>
 
+                  {/* Automatically collected information subsection */}
                   <div>
                     <h3 className="text-lg font-semibold mb-2">
                       Automatically Collected Information
@@ -114,6 +134,7 @@ export default function PrivacyPage() {
 
               <Separator />
 
+              {/* Information usage section */}
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
@@ -147,6 +168,7 @@ export default function PrivacyPage() {
 
               <Separator />
 
+              {/* Information sharing section */}
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
@@ -161,6 +183,7 @@ export default function PrivacyPage() {
                   following situations:
                 </p>
                 <div className="space-y-4">
+                  {/* Business transfers subsection */}
                   <div>
                     <h3 className="text-lg font-semibold mb-2">
                       Business Transfers
@@ -175,6 +198,7 @@ export default function PrivacyPage() {
                     </p>
                   </div>
 
+                  {/* Legal compliance subsection */}
                   <div>
                     <h3 className="text-lg font-semibold mb-2">
                       Compliance with Laws
@@ -187,6 +211,7 @@ export default function PrivacyPage() {
                     </p>
                   </div>
 
+                  {/* Service providers subsection */}
                   <div>
                     <h3 className="text-lg font-semibold mb-2">
                       Third-Party Service Providers
@@ -203,6 +228,7 @@ export default function PrivacyPage() {
 
               <Separator />
 
+              {/* Privacy rights section */}
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
@@ -244,43 +270,25 @@ export default function PrivacyPage() {
 
               <Separator />
 
+              {/* Contact section */}
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
                     <Lock className="h-5 w-5 text-green-600 dark:text-green-400" />
                   </div>
-                  <h2 className="text-2xl font-bold">Data Security</h2>
+                  <h2 className="text-2xl font-bold">Contact Us</h2>
                 </div>
-                <p className="text-muted-foreground mb-4">
-                  We have implemented appropriate technical and organizational
-                  security measures designed to protect the security of any
-                  personal information we process. However, despite our
-                  safeguards and efforts to secure your information, no
-                  electronic transmission over the Internet or information
-                  storage technology can be guaranteed to be 100% secure.
+                <p className="text-muted-foreground">
+                  If you have any questions about this Privacy Policy, please
+                  contact us at{" "}
+                  <Link
+                    href="mailto:privacy@vitalitydrinks.com"
+                    className="text-primary hover:underline"
+                  >
+                    privacy@vitalitydrinks.com
+                  </Link>
+                  .
                 </p>
-              </div>
-
-              <Separator />
-
-              <div>
-                <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
-                <p className="text-muted-foreground mb-4">
-                  If you have any questions about this privacy policy or our
-                  privacy practices, please contact us at:
-                </p>
-                <div className="bg-muted p-4 rounded-lg">
-                  <p className="font-medium">Vitality Drinks</p>
-                  <p>Email: privacy@vitalitydrinks.com</p>
-                  <p>Phone: (555) 123-4567</p>
-                  <p>Address: 123 Wellness Way, Health City, HC 12345</p>
-                </div>
-              </div>
-
-              <div className="flex justify-center pt-8">
-                <Button asChild>
-                  <Link href="/contact">Contact Us With Questions</Link>
-                </Button>
               </div>
             </div>
           </div>

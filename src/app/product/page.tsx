@@ -1,3 +1,15 @@
+/**
+ * Product detail page component for the Vitality Drinks e-commerce platform.
+ * This page displays detailed information about a specific product including:
+ * - Product image and badge
+ * - Product details and description
+ * - Nutritional information
+ * - Ingredients list
+ * - Customer reviews
+ * - Related products
+ * - Add to cart functionality
+ */
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -11,7 +23,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
-// Define the Product type for TypeScript type checking
+/**
+ * TypeScript type definition for the Product data structure
+ * Defines the shape of product data including all necessary fields
+ */
 type Product = {
   id: number;
   name: string;
@@ -38,7 +53,10 @@ type Product = {
   relatedProducts: number[];
 };
 
-// Mock products data - in a real application, this would come from an API or database
+/**
+ * Mock products data for demonstration purposes
+ * In a real application, this would be fetched from an API or database
+ */
 const products: Product[] = [
   {
     id: 1,
@@ -189,12 +207,19 @@ const products: Product[] = [
   },
 ];
 
+/**
+ * Product detail page component that displays information about a specific product
+ * @returns A React component that renders the product detail page
+ */
 export default function ProductPage() {
-  // Get the search parameters from the URL
+  // Get the search parameters from the URL to identify which product to display
   const searchParams = useSearchParams();
   const [product, setProduct] = useState<Product | null>(null);
 
-  // Effect to find and set the product based on the URL parameter
+  /**
+   * Effect to find and set the product based on the URL parameter
+   * This runs whenever the search parameters change
+   */
   useEffect(() => {
     const productId = searchParams.get("id");
     if (productId) {
@@ -215,7 +240,7 @@ export default function ProductPage() {
   return (
     <main className="flex-1">
       <div className="container px-4 md:px-6 py-6 md:py-12">
-        {/* Back button */}
+        {/* Back button to return to products list */}
         <Button variant="ghost" asChild className="mb-8">
           <Link href="/products" className="flex items-center gap-2">
             <ArrowLeft className="h-4 w-4" />
@@ -224,7 +249,7 @@ export default function ProductPage() {
         </Button>
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-          {/* Product Image */}
+          {/* Product Image Section */}
           <div className="relative aspect-square overflow-hidden rounded-lg bg-muted">
             <Image
               src={product.image || "/placeholder.svg"}
@@ -240,7 +265,7 @@ export default function ProductPage() {
             )}
           </div>
 
-          {/* Product Details */}
+          {/* Product Details Section */}
           <div className="flex flex-col">
             {/* Product Title and Rating */}
             <h1 className="text-3xl font-bold">{product.name}</h1>
@@ -249,161 +274,173 @@ export default function ProductPage() {
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star
                     key={i}
-                    className={`h-5 w-5 ${
-                      i < 4.5
-                        ? "text-yellow-400 fill-yellow-400"
-                        : "text-gray-300"
+                    className={`h-4 w-4 ${
+                      i <
+                      Math.floor(
+                        product.reviews.reduce(
+                          (acc, review) => acc + review.rating,
+                          0
+                        ) / product.reviews.length
+                      )
+                        ? "fill-yellow-400 text-yellow-400"
+                        : "fill-muted text-muted"
                     }`}
                   />
                 ))}
               </div>
               <span className="text-sm text-muted-foreground">
-                4.5 (24 reviews)
+                ({product.reviews.length} reviews)
               </span>
             </div>
+
+            {/* Product Price */}
+            <p className="text-2xl font-bold mt-4">
+              ${product.price.toFixed(2)}
+            </p>
 
             {/* Product Description */}
-            <p className="mt-4 text-muted-foreground">{product.description}</p>
+            <p className="text-muted-foreground mt-2">{product.description}</p>
 
-            {/* Price and Shipping Badge */}
-            <div className="mt-6 flex items-center">
-              <span className="text-3xl font-bold">
-                ${product.price.toFixed(2)}
-              </span>
-              <Badge variant="outline" className="ml-3">
-                Free Shipping
-              </Badge>
-            </div>
-
-            {/* Add to Cart Section */}
-            <div className="mt-8 grid gap-4">
-              <div className="flex items-center gap-4">
-                {/* Quantity Selector */}
-                <div className="flex border rounded-md">
-                  <Button variant="ghost" className="rounded-r-none px-3">
-                    -
-                  </Button>
-                  <div className="flex items-center justify-center w-12 border-x">
-                    1
-                  </div>
-                  <Button variant="ghost" className="rounded-l-none px-3">
-                    +
-                  </Button>
-                </div>
-                {/* Add to Cart Button */}
-                <Button size="lg" className="flex-1">
-                  <ShoppingCart className="mr-2 h-5 w-5" /> Add to Cart
-                </Button>
-              </div>
-              {/* Buy Now Button */}
-              <Button variant="outline" size="lg">
-                Buy Now
-              </Button>
-            </div>
-
-            <Separator className="my-8" />
+            {/* Add to Cart Button */}
+            <Button className="mt-6" size="lg">
+              <ShoppingCart className="mr-2 h-4 w-4" />
+              Add to Cart
+            </Button>
 
             {/* Product Details Tabs */}
-            <Tabs defaultValue="description" className="w-full">
-              <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="description">Description</TabsTrigger>
+            <Tabs defaultValue="details" className="mt-8">
+              <TabsList>
+                <TabsTrigger value="details">Details</TabsTrigger>
                 <TabsTrigger value="nutrition">Nutrition</TabsTrigger>
                 <TabsTrigger value="reviews">Reviews</TabsTrigger>
               </TabsList>
 
-              {/* Description Tab */}
-              <TabsContent value="description" className="pt-4">
-                <div className="space-y-4">
-                  <p>{product.longDescription}</p>
-                  <h3 className="font-semibold text-lg">Ingredients</h3>
-                  <p>{product.ingredients}</p>
-                </div>
+              {/* Details Tab Content */}
+              <TabsContent value="details" className="mt-4">
+                <p className="text-muted-foreground">
+                  {product.longDescription}
+                </p>
+                <Separator className="my-4" />
+                <h3 className="font-medium mb-2">Ingredients</h3>
+                <p className="text-muted-foreground">{product.ingredients}</p>
               </TabsContent>
 
-              {/* Nutrition Tab */}
-              <TabsContent value="nutrition" className="pt-4">
-                <div className="space-y-4">
-                  {/* Nutrition Grid */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="border rounded-lg p-3">
-                      <span className="text-sm text-muted-foreground">
-                        Calories
-                      </span>
-                      <p className="font-semibold">
-                        {product.nutritionalInfo.calories}
-                      </p>
-                    </div>
-                    <div className="border rounded-lg p-3">
-                      <span className="text-sm text-muted-foreground">
-                        Protein
-                      </span>
-                      <p className="font-semibold">
-                        {product.nutritionalInfo.protein}
-                      </p>
-                    </div>
-                    <div className="border rounded-lg p-3">
-                      <span className="text-sm text-muted-foreground">
-                        Carbs
-                      </span>
-                      <p className="font-semibold">
-                        {product.nutritionalInfo.carbs}
-                      </p>
-                    </div>
-                    <div className="border rounded-lg p-3">
-                      <span className="text-sm text-muted-foreground">Fat</span>
-                      <p className="font-semibold">
-                        {product.nutritionalInfo.fat}
-                      </p>
-                    </div>
+              {/* Nutrition Tab Content */}
+              <TabsContent value="nutrition" className="mt-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <h3 className="font-medium mb-2">Calories</h3>
+                    <p className="text-muted-foreground">
+                      {product.nutritionalInfo.calories} kcal
+                    </p>
                   </div>
-                  {/* Vitamins Section */}
-                  <h3 className="font-semibold text-lg mt-4">
-                    Vitamins & Minerals
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {product.nutritionalInfo.vitamins.map((vitamin) => (
-                      <Badge key={vitamin} variant="secondary">
-                        {vitamin}
-                      </Badge>
-                    ))}
+                  <div>
+                    <h3 className="font-medium mb-2">Protein</h3>
+                    <p className="text-muted-foreground">
+                      {product.nutritionalInfo.protein}
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-medium mb-2">Carbohydrates</h3>
+                    <p className="text-muted-foreground">
+                      {product.nutritionalInfo.carbs}
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-medium mb-2">Fat</h3>
+                    <p className="text-muted-foreground">
+                      {product.nutritionalInfo.fat}
+                    </p>
                   </div>
                 </div>
+                <Separator className="my-4" />
+                <h3 className="font-medium mb-2">Vitamins & Minerals</h3>
+                <ul className="list-disc list-inside text-muted-foreground">
+                  {product.nutritionalInfo.vitamins.map((vitamin, index) => (
+                    <li key={index}>{vitamin}</li>
+                  ))}
+                </ul>
               </TabsContent>
 
-              {/* Reviews Tab */}
-              <TabsContent value="reviews" className="pt-4">
-                <div className="space-y-6">
+              {/* Reviews Tab Content */}
+              <TabsContent value="reviews" className="mt-4">
+                <div className="space-y-4">
                   {product.reviews.map((review) => (
-                    <div
-                      key={review.id}
-                      className="border-b pb-4 last:border-0"
-                    >
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <p className="font-semibold">{review.name}</p>
-                          <div className="flex mt-1">
-                            {Array.from({ length: 5 }).map((_, i) => (
-                              <Star
-                                key={i}
-                                className={`h-4 w-4 ${
-                                  i < review.rating
-                                    ? "text-yellow-400 fill-yellow-400"
-                                    : "text-gray-300"
-                                }`}
-                              />
-                            ))}
-                          </div>
+                    <div key={review.id} className="border-b pb-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="flex">
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`h-4 w-4 ${
+                                i < review.rating
+                                  ? "fill-yellow-400 text-yellow-400"
+                                  : "fill-muted text-muted"
+                              }`}
+                            />
+                          ))}
                         </div>
+                        <span className="text-sm font-medium">
+                          {review.name}
+                        </span>
                         <span className="text-sm text-muted-foreground">
                           {review.date}
                         </span>
                       </div>
-                      <p className="mt-2">{review.comment}</p>
+                      <p className="text-muted-foreground">{review.comment}</p>
                     </div>
                   ))}
                 </div>
               </TabsContent>
             </Tabs>
+          </div>
+        </div>
+
+        {/* Related Products Section */}
+        <div className="mt-12">
+          <h2 className="text-2xl font-bold mb-6">Related Products</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {product.relatedProducts.map((relatedId) => {
+              const relatedProduct = products.find((p) => p.id === relatedId);
+              if (!relatedProduct) return null;
+
+              return (
+                <Link
+                  key={relatedId}
+                  href={`/product?id=${relatedId}`}
+                  className="group"
+                >
+                  <div className="relative aspect-square overflow-hidden rounded-lg bg-muted">
+                    <Image
+                      src={relatedProduct.image || "/placeholder.svg"}
+                      alt={relatedProduct.name}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    {relatedProduct.badge && (
+                      <Badge className="absolute top-3 right-3 bg-green-600 hover:bg-green-700">
+                        {relatedProduct.badge}
+                      </Badge>
+                    )}
+                  </div>
+                  <div className="mt-3 space-y-1">
+                    <h3 className="font-semibold">{relatedProduct.name}</h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2">
+                      {relatedProduct.description}
+                    </p>
+                    <div className="flex justify-between items-center pt-2">
+                      <span className="font-bold">
+                        ${relatedProduct.price.toFixed(2)}
+                      </span>
+                      <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
+                        <ShoppingCart className="h-4 w-4" />
+                        <span className="sr-only">Add to cart</span>
+                      </Button>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>

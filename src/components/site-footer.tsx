@@ -1,17 +1,38 @@
+/**
+ * Site Footer component for the Vitality Drinks e-commerce platform.
+ * This component provides the main footer with:
+ * - Company information and social links
+ * - Shop navigation links
+ * - Company information links
+ * - Support and policy links
+ * Features include:
+ * - Responsive grid layout
+ * - Social media integration
+ * - Organized navigation sections
+ * - Copyright notice
+ */
+
 import Link from "next/link";
 import { Facebook, Instagram, Twitter } from "lucide-react";
 
+/**
+ * Site Footer component that displays the main footer content
+ * @returns A React component that renders the site footer
+ */
 export function SiteFooter() {
   return (
     <footer className="bg-muted/40 py-12">
       <div className="container px-4 md:px-6">
+        {/* Main footer grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Company info and social links */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Vitality</h3>
             <p className="text-sm text-muted-foreground">
               Refreshing your body and mind with natural, organic beverages
               since 2015.
             </p>
+            {/* Social media links */}
             <div className="flex space-x-4">
               <Link
                 href="#"
@@ -37,6 +58,7 @@ export function SiteFooter() {
             </div>
           </div>
 
+          {/* Shop navigation */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Shop</h3>
             <ul className="space-y-2 text-sm">
@@ -75,6 +97,7 @@ export function SiteFooter() {
             </ul>
           </div>
 
+          {/* Company information */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-2 text-sm">
@@ -113,6 +136,7 @@ export function SiteFooter() {
             </ul>
           </div>
 
+          {/* Support and policies */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Support</h3>
             <ul className="space-y-2 text-sm">
@@ -152,6 +176,7 @@ export function SiteFooter() {
           </div>
         </div>
 
+        {/* Copyright notice */}
         <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">
           <p>
             &copy; {new Date().getFullYear()} Vitality Drinks. All rights

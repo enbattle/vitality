@@ -1,3 +1,17 @@
+/**
+ * Shipping & Returns page component for the Vitality Drinks e-commerce platform.
+ * This page provides comprehensive information about:
+ * - Shipping methods and costs
+ * - Order tracking and updates
+ * - Returns and refund policies
+ * - Order modification options
+ * Features include:
+ * - Shipping method comparison table
+ * - Order tracking information
+ * - Returns process for damaged items
+ * - Order modification guidelines
+ */
+
 import Link from "next/link";
 import { Truck, Package, RotateCcw, Clock } from "lucide-react";
 
@@ -12,10 +26,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
+/**
+ * Shipping & Returns page component that displays shipping and return policies
+ * @returns A React component that renders the shipping and returns information
+ */
 export default function ShippingPage() {
   return (
     <main className="flex-1">
-      {/* Header */}
+      {/* Page header with title and description */}
       <div className="bg-green-50 dark:bg-green-950/20 py-12 md:py-16">
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center space-y-4">
@@ -30,11 +48,12 @@ export default function ShippingPage() {
         </div>
       </div>
 
-      {/* Shipping Information */}
+      {/* Main content section with shipping and returns information */}
       <div className="py-12 md:py-16">
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto">
             <div className="space-y-8">
+              {/* Shipping information section */}
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
@@ -48,6 +67,7 @@ export default function ShippingPage() {
                   packaging with ice packs to maintain freshness during transit.
                 </p>
 
+                {/* Shipping methods table */}
                 <h3 className="text-lg font-semibold mb-3">
                   Shipping Methods & Timeframes
                 </h3>
@@ -86,6 +106,7 @@ export default function ShippingPage() {
                   </TableBody>
                 </Table>
 
+                {/* Shipping notes */}
                 <div className="mt-6 p-4 bg-muted rounded-lg">
                   <p className="text-sm">
                     <strong>Note:</strong> Orders placed after 1 PM EST will be
@@ -97,6 +118,7 @@ export default function ShippingPage() {
 
               <Separator />
 
+              {/* Order tracking section */}
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
@@ -109,6 +131,7 @@ export default function ShippingPage() {
                   with tracking information. You can also track your order by
                   logging into your account on our website.`}
                 </p>
+                {/* Shipping update notifications */}
                 <div className="space-y-2">
                   <h3 className="text-lg font-semibold">Shipping Updates</h3>
                   <p className="text-muted-foreground">
@@ -125,6 +148,7 @@ export default function ShippingPage() {
 
               <Separator />
 
+              {/* Returns and refunds section */}
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
@@ -138,7 +162,9 @@ export default function ShippingPage() {
                   your purchase.
                 </p>
 
+                {/* Returns policies */}
                 <div className="space-y-4">
+                  {/* Damaged products policy */}
                   <div>
                     <h3 className="text-lg font-semibold mb-2">
                       Damaged Products
@@ -151,6 +177,7 @@ export default function ShippingPage() {
                     </p>
                   </div>
 
+                  {/* Quality issues policy */}
                   <div>
                     <h3 className="text-lg font-semibold mb-2">
                       Quality Issues
@@ -163,6 +190,7 @@ export default function ShippingPage() {
                     </p>
                   </div>
 
+                  {/* Refund process */}
                   <div>
                     <h3 className="text-lg font-semibold mb-2">
                       Refund Process
@@ -179,6 +207,7 @@ export default function ShippingPage() {
 
               <Separator />
 
+              {/* Order modifications section */}
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
@@ -190,7 +219,9 @@ export default function ShippingPage() {
                   {`Need to make changes to your order? Here's what you need to
                   know:`}
                 </p>
+                {/* Order modification policies */}
                 <div className="space-y-2">
+                  {/* Cancellation policy */}
                   <h3 className="text-lg font-semibold">Cancellations</h3>
                   <p className="text-muted-foreground">
                     You can cancel your order within 2 hours of placing it.
@@ -198,6 +229,7 @@ export default function ShippingPage() {
                     guarantee cancellation.
                   </p>
 
+                  {/* Address change policy */}
                   <h3 className="text-lg font-semibold mt-4">
                     Address Changes
                   </h3>
@@ -210,6 +242,7 @@ export default function ShippingPage() {
               </div>
             </div>
 
+            {/* Contact support section */}
             <div className="mt-12 p-6 bg-green-50 dark:bg-green-950/20 rounded-lg text-center">
               <h3 className="text-xl font-semibold mb-3">Have Questions?</h3>
               <p className="text-muted-foreground mb-4">
